@@ -1,0 +1,3 @@
+rootProject.name = "Ahbottomnavigation"
+include ':app'
+include ':ahbottomnavigation'
