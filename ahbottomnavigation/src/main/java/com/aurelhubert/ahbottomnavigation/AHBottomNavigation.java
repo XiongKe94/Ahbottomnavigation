@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -993,7 +994,9 @@ public class AHBottomNavigation extends FrameLayout {
             TextView notification = (TextView) views.get(i).findViewById(R.id.bottom_navigation_notification);
 
             String currentValue = notification.getText().toString();
-            boolean animate = !currentValue.equals(String.valueOf(notificationItem.getText()));
+
+            boolean textIsEmpty = TextUtils.isEmpty(currentValue) || TextUtils.isEmpty(notificationItem.getText());
+            boolean animate = textIsEmpty && !currentValue.equals(String.valueOf(notificationItem.getText()));
 
             if (updateStyle) {
                 notification.setTextColor(currentTextColor);
