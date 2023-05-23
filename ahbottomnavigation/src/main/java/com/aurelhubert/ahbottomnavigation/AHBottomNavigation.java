@@ -421,15 +421,6 @@ public class AHBottomNavigation extends FrameLayout {
             TextView notification = view.findViewById(R.id.bottom_navigation_notification);
 
             title.setText(item.title);
-            ViewGroup.LayoutParams layoutParams = icon.getLayoutParams();
-            if (layoutParams != null) {
-                if (item.iconWidth > 0) {
-                    layoutParams.width = item.iconWidth;
-                }
-                if (item.iconHeight > 0) {
-                    layoutParams.height = item.iconHeight;
-                }
-            }
             if (titleTypeface != null) {
                 title.setTypeface(titleTypeface);
             }
@@ -437,12 +428,7 @@ public class AHBottomNavigation extends FrameLayout {
                 title.setVisibility(GONE);
                 if (view.getLayoutParams() instanceof MarginLayoutParams) {
                     MarginLayoutParams p = (MarginLayoutParams) icon.getLayoutParams();
-                    int iconBottomMargin ;
-                    if (item.iconBottomMargin > 0) {
-                        iconBottomMargin = item.iconBottomMargin;
-                    } else {
-                        iconBottomMargin = p.bottomMargin;
-                    }
+                    int iconBottomMargin = p.bottomMargin;
                     p.setMargins(p.leftMargin, AHHelper.dp2px(context, 16), p.rightMargin, iconBottomMargin);
                 }
             }
@@ -458,12 +444,7 @@ public class AHBottomNavigation extends FrameLayout {
                 // Update margins (icon & notification)
                 if (view.getLayoutParams() instanceof MarginLayoutParams) {
                     MarginLayoutParams p = (MarginLayoutParams) icon.getLayoutParams();
-                    int iconBottomMargin;
-                    if (item.iconBottomMargin > 0) {
-                        iconBottomMargin = item.iconBottomMargin;
-                    } else {
-                        iconBottomMargin = p.bottomMargin;
-                    }
+                    int iconBottomMargin = p.bottomMargin;
                     p.setMargins(p.leftMargin, activePaddingTop, p.rightMargin, iconBottomMargin);
 
                     MarginLayoutParams paramsNotification = (MarginLayoutParams)
