@@ -19,6 +19,7 @@ public class AHBottomNavigationItem {
     public int bgIconColor = Color.GRAY;
     public int iconWidth;
     public int iconHeight;
+    public int iconBottomMargin;
 
     public AHBottomNavigationItem(@NonNull String title, @Nullable Drawable checkDrawable) {
         this.title = title;

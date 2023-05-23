@@ -437,7 +437,13 @@ public class AHBottomNavigation extends FrameLayout {
                 title.setVisibility(GONE);
                 if (view.getLayoutParams() instanceof MarginLayoutParams) {
                     MarginLayoutParams p = (MarginLayoutParams) icon.getLayoutParams();
-                    p.setMargins(p.leftMargin, AHHelper.dp2px(context, 16), p.rightMargin, p.bottomMargin);
+                    int iconBottomMargin ;
+                    if (item.iconBottomMargin > 0) {
+                        iconBottomMargin = item.iconBottomMargin;
+                    } else {
+                        iconBottomMargin = p.bottomMargin;
+                    }
+                    p.setMargins(p.leftMargin, AHHelper.dp2px(context, 16), p.rightMargin, iconBottomMargin);
                 }
             }
 
@@ -452,7 +458,13 @@ public class AHBottomNavigation extends FrameLayout {
                 // Update margins (icon & notification)
                 if (view.getLayoutParams() instanceof MarginLayoutParams) {
                     MarginLayoutParams p = (MarginLayoutParams) icon.getLayoutParams();
-                    p.setMargins(p.leftMargin, activePaddingTop, p.rightMargin, p.bottomMargin);
+                    int iconBottomMargin;
+                    if (item.iconBottomMargin > 0) {
+                        iconBottomMargin = item.iconBottomMargin;
+                    } else {
+                        iconBottomMargin = p.bottomMargin;
+                    }
+                    p.setMargins(p.leftMargin, activePaddingTop, p.rightMargin, iconBottomMargin);
 
                     MarginLayoutParams paramsNotification = (MarginLayoutParams)
                             notification.getLayoutParams();
